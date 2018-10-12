@@ -14,6 +14,7 @@ jobs:
       - run:
           name: Compile
           command: go build
+      - run: cci-test
   # test:
   #   docker:
   #     - image: circleci/golang:1.10
