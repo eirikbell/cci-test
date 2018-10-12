@@ -1,21 +1,19 @@
 version: 2
 jobs:
   build:
-    # working_directory: /go/src/github.com/eirikbell/cci-test
+    working_directory: /go/src/github.com/eirikbell/cci-test
     # working_directory: /go/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
     docker:
       - image: circleci/golang:1.10
     environment:
       - DEP_VERSION: 0.4.1
     steps:
-      - run: mkdir /go/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
-      - run: cd /go/src/github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
       - checkout
       - run: pwd
       - run: ls -la
-  #     - run:
-  #         name: Compile
-  #         command: go build
+      - run:
+          name: Compile
+          command: go build
   # test:
   #   docker:
   #     - image: circleci/golang:1.10
