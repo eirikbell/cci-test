@@ -3,25 +3,27 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.10
+    environment:
+      - DEP_VERSION: 0.4.1
     steps:
       - checkout
-      - run:
-          name: Compile
-          command: go build
-  test:
-    docker:
-      - image: circleci/golang:1.10
-    steps:
-      - checkout
-      - run:
-          name: test
-          command: go test ./...
-      - run:
-          name: vet
-          command: go vet ./...
+  #     - run:
+  #         name: Compile
+  #         command: go build
+  # test:
+  #   docker:
+  #     - image: circleci/golang:1.10
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: test
+  #         command: go test ./...
+  #     - run:
+  #         name: vet
+  #         command: go vet ./...
 workflows:
   version: 2
   workflow:
     jobs:
       - build
-      - test
+      # - test
