@@ -19,3 +19,9 @@ jobs:
       - run:
           name: vet
           command: go vet ./...
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
+      - test
