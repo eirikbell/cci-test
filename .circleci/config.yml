@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: /go/src/github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
     docker:
       - image: circleci/golang:1.10
     environment:
