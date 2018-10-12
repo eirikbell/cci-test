@@ -12,10 +12,18 @@ jobs:
       - run: pwd
       - run: ls -la
       - run:
+          name: format
+          command: go fmt ./...
+      - run:
+          name: vet
+          command: go vet ./...
+      - run:
+          name: test
+          command: go test ./...
+      - run:
           name: Compile
           command: go build
       - run: ls -la
-      - run: ./cci-test
   # test:
   #   docker:
   #     - image: circleci/golang:1.10
